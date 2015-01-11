@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>登录</title>
+  <link rel="stylesheet" href="resources/amazeui/css/amazeui.min.css"/>
+  <style>
+    .header {
+      text-align: center;
+      margin-top:100px;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="am-g">
+    <h1>AmazeUI-Admin</h1>
+    <p>基于AmazeUI的管理系统</p>
+  </div>
+  <hr />
+</div>
+<div class="am-g">
+  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+    <form class="am-form am-form-horizontal" action="login" method="post">
+  <div class="am-form-group">
+    <label for="doc-ipt-3" class="am-u-sm-2 am-form-label">用户名</label>
+    <div class="am-u-sm-10">
+      <input type="email" id="doc-ipt-3">
+    </div>
+  </div>
+
+  <div class="am-form-group">
+    <label for="doc-ipt-pwd-2" class="am-u-sm-2 am-form-label">密码</label>
+    <div class="am-u-sm-10">
+      <input type="password" id="doc-ipt-pwd-2">
+    </div>
+  </div>
+
+  <div class="am-form-group">
+    <div class="am-u-sm-10 am-u-sm-offset-8">
+      <button type="submit" class="am-btn am-btn-primary">登录</button>
+      <button type="reset" class="am-btn am-btn-secondary" style="margin-left:30px;">重置</button>
+    </div>
+  </div>
+</form>
+    
+    <hr>
+    <p>© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+
+<header class="am-topbar admin-header" style="width:100%;">
+  <div class="am-topbar-brand">
+    <strong>Amaze UI</strong> <small>后台管理模板</small>
+  </div>
+
+  <button data-am-collapse="{target: '#topbar-collapse'}" class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div id="topbar-collapse" class="am-collapse am-topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
+      <li data-am-dropdown="" class="am-dropdown">
+        <a href="javascript:;" data-am-dropdown-toggle="" class="am-dropdown-toggle">
+          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </ul>
+      </li>
+      <li><a id="admin-fullscreen" href="javascript:;"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+    </ul>
+  </div>
+</header>

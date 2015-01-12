@@ -6,13 +6,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * 构造View模型
+ * 瑙嗗浘model
  * @author LCore
  *
  */
 public class ModelView {
 	/**
-	 * 单页模型
+	 * 鍗曢〉瑙嗗浘model
 	 * @param fileName
 	 * @param request
 	 * @param response
@@ -26,7 +26,7 @@ public class ModelView {
 	}
 
 	/**
-	 * 带布局View模型
+	 * 甯冨眬椤佃鍥緈odel
 	 * @param fileName
 	 * @param layout
 	 * @param request

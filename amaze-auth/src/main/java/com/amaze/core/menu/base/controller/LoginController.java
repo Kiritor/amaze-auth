@@ -19,7 +19,7 @@ public class LoginController extends ModelView{
 	@RequestMapping("login")
 	public ModelAndView login(HttpServletRequest request,HttpServletResponse response) throws Exception{
         User user = new User();
-        user.setName("¡∫ÃŒ");
+        user.setName("Ê¢ÅÊ∂õ");
         baseService.saveObj(user);
 		return createLayoutView("admin/index", null, request, response);	
 	}

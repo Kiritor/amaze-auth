@@ -4,12 +4,16 @@ package com.amaze.core.datamng;
 import java.util.List;
 
 import com.amaze.core.po.Root;
-
+/**
+ * å°è£…åº•å±‚æ•°æ®è®¿é—®
+ * HibernateTemplate
+ * @author lcore
+ *
+ */
 public interface BaseDataMng {
 
 	/**
-	 * ±£´æ¶ÔÏó
-	 * 
+	 * ä¿å­˜å¯¹è±¡
 	 * @param root
 	 * @return
 	 * @throws Exception
@@ -17,58 +21,55 @@ public interface BaseDataMng {
 	public abstract String saveObj(Root root) throws Exception;
 
 	/**
-	 * ±£´æ»ò¸üĞÂ¶ÔÏó
-	 * 
+	 * ä¿å­˜æˆ–è€…æ›´æ–°å¯¹è±¡
 	 * @param root
 	 * @throws Exception
 	 */
 	public abstract void saveOrUpdate(Root root) throws Exception;
 
 	/**
-	 * ¸üĞÂ¶ÔÏó
-	 * 
+	 * æ›´æ–°å¯¹è±¡
 	 * @param root
 	 * @throws Exception
 	 */
 	public abstract void updateObj(Root root) throws Exception;
 
 	/**
-	 * ¸ù¾İId¡¢ÀàÃû»ñÈ¡¶ÔÏó
-	 * 
+	 * é€šè¿‡idå’Œå®ä½“åå­—è·å–å¯¹è±¡
 	 * @param id
 	 * @param className
 	 * @return
 	 */
-	public abstract Root getObj(String id, String className);
+	public abstract Root getObj(String className, String id);
 	
 	/**
-	 * ¸ù¾İid¡¢Àà»ñÈ¡¶ÔÏó
+	 * é€šè¿‡idå’Œå®ä½“è·å–å¯¹è±¡
 	 * @param id
 	 * @param className
 	 * @return
 	 */
-	public abstract Root getObj(String id,Class<?> className);
+	public abstract Root getObj(Class<?> className,String id);
 	
 	/**
-	 * ¸ù¾İid,ÀàÃûÉ¾³ı¼ÇÂ¼
-	 * @param id
-	 * @param className
-	 * @return
-	 * @throws Exception
-	 */
-	public abstract Root deleteObj(String id,String className) throws Exception;
-	
-	/**
-	 * ¸ù¾İid¡¢ÀàÉ¾³ı¼ÇÂ¼
+	 * é€šè¿‡idå’Œå®ä½“åå­—åˆ é™¤çºªå½•
 	 * @param id
 	 * @param className
 	 * @return
 	 * @throws Exception
 	 */
-	public abstract Root deleteObj(String id,Class<?> className) throws Exception;
+	public abstract Root deleteObj(String className,String id) throws Exception;
 	
 	/**
-	 * ¸ù¾İÀàÃû¡¢Ìõ¼ş»ñÈ¡µ¥Ìõ¼ÇÂ¼
+	 * é€šè¿‡idå’Œå®ä½“åˆ é™¤å¯¹è±¡
+	 * @param id
+	 * @param className
+	 * @return
+	 * @throws Exception
+	 */
+	public abstract Root deleteObj(Class<?> className,String id) throws Exception;
+	
+	/**
+	 * æ ¹æ®æ¡ä»¶è¡¨è¾¾å¼å’Œå®ä½“åå¾—åˆ°å•æ¡çºªå½•
 	 * @param className
 	 * @param condition
 	 * @return
@@ -76,7 +77,7 @@ public interface BaseDataMng {
 	public abstract Root getObjByCondition(String className,String condition);
 	
 	/**
-	 * ¸ù¾İÀà¡¢Ìõ¼ş»ñÈ¡µ¥Ìõ¼ÇÂ¼
+	 * æ ¹æ®æ¡ä»¶è¡¨è¾¾å¼å’Œå®ä½“å¾—åˆ°å•æ¡çºªå½•
 	 * @param className
 	 * @param condition
 	 * @return
@@ -84,7 +85,7 @@ public interface BaseDataMng {
 	public abstract Root getObjByCondition(Class<?> className,String condition);
 	
 	/**
-	 * ¸ù¾İÀàÃû¡¢Ìõ¼ş»ñÈ¡¼ÇÂ¼¼¯ºÏ
+	 * æ ¹æ®æ¡ä»¶è¡¨è¾¾å¼å’Œå®ä½“åå¾—åˆ°é›†åˆçºªå½•
 	 * @param className
 	 * @param condition
 	 * @return
@@ -92,7 +93,7 @@ public interface BaseDataMng {
 	public abstract List<?> getObjListByCondition(String className,String condition);
 	
 	/**
-	 * ¸ù¾İÀà¡¢Ìõ¼ş»ñÈ¡¼ÇÂ¼¼¯ºÏ
+	 * æ ¹æ®æ¡ä»¶è¡¨è¾¾å¼å’Œå®ä½“å¾—åˆ°é›†åˆçºªå½•
 	 * @param className
 	 * @param condition
 	 * @return
@@ -100,11 +101,9 @@ public interface BaseDataMng {
 	public abstract List<?> getObjListByCondition(Class<?> className,String condition);
 
 	/**
-	 * ¸ù¾İÀàÃû,Ìõ¼ş»ñÈ¡·ÖÒ³¼ÇÂ¼¼¯ºÏ
+	 * æ ¹æ®æ¡ä»¶å¾—åˆ°åˆ†é¡µçºªå½•
 	 * @param className
-	 * ÀàÃû
 	 * @param condition
-	 * Ìõ¼ş
 	 * @param firstRow
 	 * @param pageSize
 	 * @return
@@ -112,30 +111,13 @@ public interface BaseDataMng {
     public abstract List<?> getPagedObjListWithCondition(String className,String condition,int firstRow,int pageSize);
 
     /**
-     * ¸ù¾İÀà,Ìõ¼ş»ñÈ¡·ÖÒ³¼ÇÂ¼¼¯ºÏ
+     * æ ¹æ®æŸ¥è¯¢æ¡ä»¶å¾—åˆ°åˆ†é¡µçºªå½•
      * @param className
-     * ÀàÃû
      * @param condition
-     * Ìõ¼ş
      * @param firstRow
      * @param pageSize
      * @return
      */
     public abstract List<?> getPagedObjListWithCondition(Class<?> className,String condition,int firstRow,int pageSize);
     
-    /**
-     * ¸ù¾İÀàÃû¡¢Ìõ¼ş»ñÈ¡¼ÇÂ¼×ÜÊı
-     * @param className
-     * @param condition
-     * @return
-     */
-    public abstract Long getAllObjCountByCondition(String className, String condition);
-    
-    /**
-     * ¸ù¾İÀà¡¢Ìõ¼ş»ñÈ¡¼ÇÂ¼×ÜÊı
-     * @param className
-     * @param condition
-     * @return
-     */
-    public abstract Long getAllObjCountByCondition(Class<?> className, String condition);
 }

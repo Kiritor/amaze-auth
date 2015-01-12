@@ -43,25 +43,21 @@ public class BaseDataMngImpl implements BaseDataMng {
 	}
 
 	@Override
-	public Root getObj(String id, String className) {
-		// TODO Auto-generated method stub
-		return null;
+	public Root getObj(String className, String id) {
+		return (Root) getHibernateTemplate().get(className, id);
 	}
-
-	@Override
-	public Root getObj(String id, Class<?> className) {
-		// TODO Auto-generated method stub
-		return null;
+    @Override
+	public Root getObj(Class<?> className, String id) {
+		return (Root)getHibernateTemplate().get(className, id);
 	}
 
 	@Override
 	public Root deleteObj(String id, String className) throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Root deleteObj(String id, Class<?> className) throws Exception {
+	public Root deleteObj(Class<?> className, String id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -104,16 +100,5 @@ public class BaseDataMngImpl implements BaseDataMng {
 		return null;
 	}
 
-	@Override
-	public Long getAllObjCountByCondition(String className, String condition) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Long getAllObjCountByCondition(Class<?> className, String condition) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

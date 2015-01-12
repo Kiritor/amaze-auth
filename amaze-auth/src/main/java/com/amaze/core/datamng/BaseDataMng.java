@@ -57,7 +57,7 @@ public interface BaseDataMng {
 	 * @return
 	 * @throws Exception
 	 */
-	public abstract Root deleteObj(String className,String id) throws Exception;
+	public abstract void deleteObj(String className,String id) throws Exception;
 	
 	/**
 	 * 通过id和实体删除对象
@@ -66,7 +66,7 @@ public interface BaseDataMng {
 	 * @return
 	 * @throws Exception
 	 */
-	public abstract Root deleteObj(Class<?> className,String id) throws Exception;
+	public abstract void deleteObj(Class<?> className,String id) throws Exception;
 	
 	/**
 	 * 根据条件表达式和实体名得到单条纪录

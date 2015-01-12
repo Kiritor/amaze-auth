@@ -2,6 +2,7 @@ package com.amaze.core.datamng.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -52,38 +53,43 @@ public class BaseDataMngImpl implements BaseDataMng {
 	}
 
 	@Override
-	public Root deleteObj(String id, String className) throws Exception {
-		return null;
+	public void deleteObj(String className, String id) throws Exception {
+		Root root = getObj(className, id);
+	    getHibernateTemplate().delete(root);
 	}
 
 	@Override
-	public Root deleteObj(Class<?> className, String id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteObj(Class<?> className, String id) throws Exception {
+		Root root = getObj(className, id);
+		getHibernateTemplate().delete(root);
 	}
 
 	@Override
 	public Root getObjByCondition(String className, String condition) {
-		// TODO Auto-generated method stub
-		return null;
+        List<Root> list = getObjListByCondition(className, condition);
+        return  (list!=null&&list.size()>0?list.get(0):null);
 	}
 
 	@Override
 	public Root getObjByCondition(Class<?> className, String condition) {
-		// TODO Auto-generated method stub
-		return null;
+		return getObjByCondition(className.getSimpleName(), condition);
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Root> getObjListByCondition(String className, String condition) {
+		String queryString = "";
+		if(condition!=null&&!condition.trim().isEmpty()){
+			queryString = (new StringBuffer(" from ")).append(className)
+					.append(" as obj where 1=1 and ( ").append(condition)
+					.append(" )").toString();
+		}
+		Query query = getSession().createQuery(queryString);
+		return query.list();
 	}
 
 	@Override
-	public List<?> getObjListByCondition(String className, String condition) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<?> getObjListByCondition(Class<?> className, String condition) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Root> getObjListByCondition(Class<?> className, String condition) {
+		return getObjListByCondition(className.getSimpleName(),condition);
 	}
 
 	@Override

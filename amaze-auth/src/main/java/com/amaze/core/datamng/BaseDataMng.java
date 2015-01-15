@@ -6,7 +6,7 @@ import java.util.List;
 import com.amaze.core.po.Root;
 /**
  * 封装底层数据访问
- * HibernateTemplate
+ * HibernateTemplate、JDBCTemplate
  * @author lcore
  *
  */
@@ -119,5 +119,18 @@ public interface BaseDataMng {
      * @return
      */
     public abstract List<?> getPagedObjListWithCondition(Class<?> className,String condition,int firstRow,int pageSize);
+    
+    /**
+     * 纯sql的方式查询数据
+     * @param sql
+     * @return
+     */
+    public abstract List<?> queryBySql(String sql);
+    
+    /**
+     * 纯sql的方式删除数据
+     * @param sql
+     */
+    public abstract void deleteBySql(String sql);
     
 }

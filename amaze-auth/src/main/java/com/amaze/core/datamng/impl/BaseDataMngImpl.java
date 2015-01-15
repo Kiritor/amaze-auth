@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,11 @@ public class BaseDataMngImpl implements BaseDataMng {
 
 	protected HibernateTemplate getHibernateTemplate() {
 		return TemplateFactory.getHibernateTemplateById("hibernateTemplate");
+	}
+	
+	
+	protected JdbcTemplate getJDBCTempale(){
+		return TemplateFactory.getJDBCTemplateById("jdbcTemplate");
 	}
 
 	protected Session getSession() {
@@ -111,6 +117,18 @@ public class BaseDataMngImpl implements BaseDataMng {
 	public List<?> getPagedObjListWithCondition(Class<?> className,
 			String condition, int firstRow, int pageSize) {
 		return getPagedObjListWithCondition(className.getSimpleName(), condition, firstRow, pageSize);
+	}
+
+	@Override
+	public List<?> queryBySql(String sql) {
+		JdbcTemplate jdbcTemplate = getJDBCTempale();
+		return jdbcTemplate.queryForList(sql);
+	}
+
+	@Override
+	public void deleteBySql(String sql) {
+		JdbcTemplate jdbcTemplate = getJDBCTempale();
+	    jdbcTemplate.execute(sql);
 	}
 
 

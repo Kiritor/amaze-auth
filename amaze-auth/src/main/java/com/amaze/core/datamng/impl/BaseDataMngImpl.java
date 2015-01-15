@@ -95,15 +95,22 @@ public class BaseDataMngImpl implements BaseDataMng {
 	@Override
 	public List<?> getPagedObjListWithCondition(String className,
 			String condition, int firstRow, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		String queryString = "";
+		if(condition!=null&&condition.trim().isEmpty()){
+			queryString =(new StringBuffer(" from ")).append(className)
+					.append(" as obj where 1=1 and (").append(condition)
+					.append(" )").toString();
+		}
+		Query query = getSession().createQuery(queryString);
+		query.setMaxResults(pageSize);
+		query.setFirstResult(firstRow);
+		return query.list();
 	}
 
 	@Override
 	public List<?> getPagedObjListWithCondition(Class<?> className,
 			String condition, int firstRow, int pageSize) {
-		// TODO Auto-generated method stub
-		return null;
+		return getPagedObjListWithCondition(className.getSimpleName(), condition, firstRow, pageSize);
 	}
 
 

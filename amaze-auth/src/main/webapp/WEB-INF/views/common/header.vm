@@ -1,26 +1,55 @@
-
-<header class="am-topbar admin-header" style="width:100%;">
-  <div class="am-topbar-brand">
-    <strong>Amaze UI</strong> <small>后台管理模板</small>
-  </div>
-
-  <button data-am-collapse="{target: '#topbar-collapse'}" class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
-
-  <div id="topbar-collapse" class="am-collapse am-topbar-collapse">
-
-    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
-      <li data-am-dropdown="" class="am-dropdown">
-        <a href="javascript:;" data-am-dropdown-toggle="" class="am-dropdown-toggle">
-          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+ <div class="header">
+        <span class="title">Amaze-admin</span><span class="icon-reorder icon-2x toggle"></span>
+        <span class="navbar-right">
+	    <ul class="navbar-nav">
+		<li>
+		 <span class="dropdown-item">
+		<a href="#">
+			<i class="icon-envelope-alt"></i>
+			<span class="label label-success">4</span>
         </a>
-        <ul class="am-dropdown-content">
-          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
-          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </span>
+        <span class="dropdown-item">
+		<a href="#">
+			<i class="icon-warning-sign"></i>
+			<span class="label label-warn">4</span>
+        </a>
+        </span>
+        <span class="dropdown-item">
+		<a href="www.baidu.com">
+			<i class="icon-tasks"></i>
+			<span class="label label-error">4</span>
+        </a>
+        </span>
+        </li>
         </ul>
-      </li>
-      <li><a id="admin-fullscreen" href="javascript:;"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
-    </ul>
-  </div>
-</header>
+		<span class="dropdown-item-userInfo" id="userInfo"><i class="icon-user"></i>  LCore  <i class="icon-caret-down"></i></span>
+        </span>
+    </div>
+	<div class="profile">
+	  <div class="userInfo"></div>
+    </div>
+	<script>
+	    $(function(){
+			
+			$(document).not($("#userInfo")).on('click',function(){
+				$(".profile").css({
+					position:"absolute",
+					top:"51px",
+					right:"10px",
+					display:'none'
+				});
+			})
+			
+			$("#userInfo").on('click',function(event){
+			    event.stopPropagation();
+				$(".profile").css({
+					position:"absolute",
+					top:"51px",
+					right:"10px",
+					display:'block'
+				});
+			});
+			
+		});
+	</script>
